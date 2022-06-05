@@ -3,6 +3,11 @@ import './App.css';
 
 import { addWatchedMovie, add, removeWatchedMovie, getWatchedMovies, getAllMovies } from './index.js';
 
+/**
+ * It is better to move Movie component to separate file.
+ * Do not forget to use key property in Movie component.
+ * Try map function instead of forEach.
+ */
 const getMoviesComponents = (movies) => {
   var components = [];
 
@@ -10,15 +15,27 @@ const getMoviesComponents = (movies) => {
     components.push(
       <div className="all">
         <div>
+          {/**
+           * It is not a good idea to use height property in img tag.
+           * You may add additional styling in the future, so let's move it to css file. 
+           * img elements must have an alt prop
+           */}
           <img src={movie.image} height="100px" />
         </div>
+        {/**
+         * No need to wrap "a" tag in a span.
+         */}
         <span>
+          {/*
+          * use href="/#" insted of href="#" or convert "a" tag to a button.
+          * movie-watched class is not defined anywhere.
+          */}
           <a className="movie-watched" href="#" onClick={function() { addWatchedMovie(movie.title, movie.comment, movie.image) }}>
             {movie.title}
-          </a>
+          </a> 
         </span>
         <br />
-        <span>
+        <span> 
           {movie.comment}
         </span>
         <br />
@@ -57,6 +74,10 @@ function getWatchedMoviesComponents(movies) {
   return components;
 }
 
+/**
+ * props are unused here. Need to remove them.
+ * Use useState hook for title, image and comment. Using global variables is not a good idea.
+ * */
 function App(props) {
   return (
     <div className="App">
@@ -65,6 +86,11 @@ function App(props) {
       <b>TITLE:<br /><input type="text" onChange={function(e) { title = e.target.value; }} /></b><br />
       <b>IMAGE URL:<br /><input type="text" onChange={function(e) { image = e.target.value; }} /></b><br />
       <b>COMMENT:<br /><input type="text" onChange={function(e) { comment = e.target.value; }} /></b><br />
+      {/**
+       * Remove "e" variable. It is not used.
+       * Use button instead of a input tag.
+       * arguments passed wrong. Should be (title, comment, image)
+       */}
       <input type="button" onClick={function(e) { add(title, image, comment); }} value="ADD MOVIE" />
 
       <h1>Watchlist:</h1>

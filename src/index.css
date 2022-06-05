@@ -7,12 +7,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/**
+* This styling is not used anywhere in the project. Needs to be removed.
+*/
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+/**
+* .watched and .all are using the same styling.
+* remove one of them or change the styling. 
+*/
 .watched {
 	margin: 0 auto;
 	width: 30%;
@@ -21,12 +26,16 @@ code {
 .span {
 	float: left;
 }
-
+/**
+* Avoid applying styling to the tag itself. use the class instead.
+*/
 img {
 	border-right: 60px solid black;
 	border-left: 60px solid black;
 }
-
+/**
+* Use meaningful names for the classes.
+*/
 .all {
 	margin: 0 auto;
 	width: 30%;
