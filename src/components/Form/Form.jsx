@@ -11,6 +11,9 @@ export const Form = ({
   const handleSubmit = (e) => {
       e.preventDefault();
       onSubmit(title, image, comment);
+      setTitle('');
+      setImage('');
+      setComment('');
   }
   return (
     <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const defaultMovieList = [
   {
@@ -19,7 +19,7 @@ const defaultMovieList = [
     comment: 'Someone said this was fun. Maybe!',
     isWatch: false
   }
-];
+]
 
 const getMoviesFromLocalStorage = () => {
   const movies = localStorage.getItem('movies')
@@ -36,6 +36,10 @@ const getMoviesFromLocalStorage = () => {
 export const useMovieList = () => {
   const [movies, setMovies] = useState(getMoviesFromLocalStorage())
 
+  useEffect(() => {
+    localStorage.setItem('movies', JSON.stringify(movies))
+  }, [movies])
+
   const addMovie = (title, description, image, isWatched) => {
     const movie = {
       title,
@@ -47,17 +51,16 @@ export const useMovieList = () => {
   }
 
   const toggleMovieIsWatched = (title, isWatched) => {
-    setMovies(
-      movies.map(movie => {
-        if (movie.title === title) {
-          return {
-            ...movie,
-            isWatched
-          }
+    const updatedMovies = movies.map(movie => {
+      if (movie.title === title) {
+        return {
+          ...movie,
+          isWatched
         }
-        return movie
-      })
-    )
+      }
+      return movie
+    })
+    setMovies(updatedMovies)
   }
 
   return {

@@ -1,14 +1,23 @@
 .wrapper {
-    margin: 0 auto;
-	width: 30%;
+  margin: 0 auto;
+  width: 30%;
 }
 
 .image {
-	border-right: 60px solid black;
-	border-left: 60px solid black;
-    height: 100%;
+  border-right: 60px solid black;
+  border-left: 60px solid black;
+  height: 100px;
 }
 
 .isWatched {
-	opacity: 0.8;
+  opacity: 0.8;
+}
+
+.title {
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+  color: blue;
 }

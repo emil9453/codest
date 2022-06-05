@@ -10,7 +10,7 @@ export const Movie = ({ title, image, comment, onClick, isWatched }) => {
         <img className={styles.image} src={image} alt={title} />
       </div>
       <span>
-        <button onClick={onClick}>{title}</button>
+        <button onClick={onClick} className={styles.title}>{title}</button>
       </span>
       <br />
       <span>{comment}</span>
