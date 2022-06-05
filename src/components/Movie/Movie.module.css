@@ -1,0 +1,14 @@
+.wrapper {
+    margin: 0 auto;
+	width: 30%;
+}
+
+.image {
+	border-right: 60px solid black;
+	border-left: 60px solid black;
+    height: 100%;
+}
+
+.isWatched {
+	opacity: 0.8;
+}
